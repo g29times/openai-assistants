@@ -1,0 +1,26 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2048 Game</title>
+    <link rel="stylesheet" href="templates/styles.css">  <!-- Include CSS for styling -->
+</head>
+<body>
+    <div class="game-container">
+        <!-- 这是一个使用Jinja2模板引擎的循环，用于遍历网格 -->
+        {% for row in grid %}
+            <div class="row">
+                <!-- 这是一个内部循环，用于遍历行中的每个值 -->
+                {% for value in row %}
+                    <div class="cell">{{ value if value != 0 else '' }}</div>  <!-- 如果值不等于0，则在单元格中显示值，否则显示空字符串 -->
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Include jQuery -->
+    <script src="templates/app.js"></script>  <!-- Include JavaScript for game logic -->
+</body>
+</html>
